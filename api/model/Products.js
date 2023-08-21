@@ -2,9 +2,10 @@ const db = require("../config")
 class Products{
 fetchProducts(req, res){
     const query = `
-    SELECT blanketID , blanketName ,
-    blanketCategory, price
-    FROM Blankets;
+    SELECT prodID, prodName,
+    quantity, amount, Category,
+    prodUrl
+    FROM Products;
     `
     db.query(query,
        (err, results) =>{
@@ -17,10 +18,11 @@ fetchProducts(req, res){
 }
  fetchProduct(req,res){
     const query = `
-    SELECT blanketID , blanketName ,
-    blanketCategory, price
-    FROM Blankets;
-    WHERE blanketID = ${req.params.id};
+    SELECT prodID, prodName,
+    quantity, amount, Category,
+    prodUrl
+    FROM Products;
+    WHERE prodID = ${req.params.id};
     `
     const id = req.params.id
     db.query(query, [id],
@@ -35,7 +37,7 @@ fetchProducts(req, res){
  registerProduct(req, res) {
     const data = req.body;
     const query = `
-        INSERT INTO Blankets
+        INSERT INTO Products
         SET ?;
         `
     db.query(query, [data], (err) => {
@@ -48,9 +50,9 @@ fetchProducts(req, res){
 }
 updateProduct(req,res){
     const query = `
-    UPDATE Blankets
+    UPDATE Products
     SET ?
-    WHERE BlanketID = ?
+    WHERE prodID = ?
     `
     const data = req.body
     const id = req.params.id
@@ -65,8 +67,8 @@ updateProduct(req,res){
  }
  deleteProduct(req,res){
     const query = `
-    DELETE FROM Blankets
-    WHERE BlanketID = ?;
+    DELETE FROM Products
+    WHERE prodID = ?;
     `
     const id = req.params.id
     db.query(query, [id],

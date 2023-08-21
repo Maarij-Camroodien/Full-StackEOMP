@@ -1,9 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const {verifyAToken} = require('../middleware/AuthenticateUser')
 const routes = express.Router()
-//Import all models objects model import the indexs and is exporting a object of users
-const {users, products,} = require('../models')
+const {users, products,} = require('../model')
+
 //User Router
 routes.get('/users', (req, res)=>{
     users.fetchUsers(req, res)
@@ -30,10 +29,10 @@ bodyParser.json(), (req, res)=>{
 })
 
 
-//============= Books Router =================
+//Products Router
 
 
-routes.get('/products', verifyAToken, (req, res)=>{
+routes.get('/products', (req, res)=>{
     products.fetchProducts(req, res)
 })
 routes.get('/product/:id', (req, res)=>{
