@@ -3,20 +3,15 @@
         <Navbar class="navbar navbar-expand-lg" id="navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <form class="d-flex" role="search">
-                        <i class="bi bi-search" style="margin-top:0.5rem;color:white;"><span style="margin-left:1.3rem;color:white;">SEARCH</span></i>
+                        <i class="bi bi-search" style="margin-top:0.5rem;color:white;"><span style="margin-left:1.3rem;color:white;"><input type="text" placeholder="SEARCH " style="background-color:black; color: white"></span></i>
                     </form>
                     </ul>
                 <img src="https://i.postimg.cc/KjZXvPqZ/Screenshot-2023-08-21-124610.png" style="width:13rem;" alt="logo">
-                </div>          
-            </div>
-          
+                </div>
         </Navbar>
+
         <nav class="navbar navbar-expand-lg" id="nav1">
             <div class="container-fluid">
               <a class="navbar-brand" href="#"></a>
@@ -64,9 +59,14 @@ h1{
 li{
 font-family: 'Merriweather', serif;
 }
+
 .nav-item{
     text-align: center;
 
+}
+::placeholder{
+    color: white;
+    
 }
 
 .nav-link {

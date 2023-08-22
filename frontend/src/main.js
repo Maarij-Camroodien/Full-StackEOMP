@@ -8,5 +8,8 @@ import 'bootstrap'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import '@/assets/style/style.css'
 import 'animate.css'
+import { MotionPlugin } from '@vueuse/motion'
 
-createApp(App).use(store).use(router).mount('#app')
+
+
+createApp(App).use(store).use(router).mount('#app').use(MotionPlugin).mount('#app')
