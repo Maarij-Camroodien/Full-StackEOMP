@@ -7,9 +7,9 @@ export default createStore({
     user: null,
     products: null,
     product: null,
-    spinner: false,
-    token: null,
-    msg: null
+    filtername: null,
+    filtercategory: null,
+    addContent: null
   },
   getters: {
   },
@@ -26,15 +26,16 @@ export default createStore({
     setProduct(state, product) {
       state.product = product
     },
-    setSpinner(state, spinner) {
-      state.spinner = spinner
+    filtername(state, filtername) {
+      state.filtername = filtername
     },
-    setToken(state, token) {
-      state.token = token
+    filtercategory(state, filtercategory) {
+      state.filtercategory = filtercategory
     },
-    setMsg(state, msg) {
-      state.msg = msg
-    },
+    addContent(state, data) {
+      state.addContent = data
+    }
+
   },
   actions: {
     async fetchUsers(context) {
@@ -53,7 +54,25 @@ export default createStore({
       }catch(e){
         context.commit("setMsg", "An error occurred")
       }
+    },
+    async filtercategory(context) {
+      try{
+        const {data} = await axios.get(`${spiceUrl}filterCategory`)
+        context.commit("filtercategory", data.results)
+        console.log(data.results);
+      }catch(e){
+        context.commit("setMsg", "An error occurred")
+      }
+    },
+    async addProduct(context, prodData){
+      try {
+        const response = await axios.post(`${spiceUrl}product`, prodData)
+        context.commit('addContent', response.data)
+      } catch (error) {
+        console.log(error);
+      }
     }
+
   },  
   modules: {
   }

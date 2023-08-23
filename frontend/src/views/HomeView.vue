@@ -49,6 +49,7 @@ export default {
 <style scoped>
 li{
   font-family: 'DM Serif Display', serif;
+  font-size: 20px;
   }
 
 .carousel-item {
@@ -62,15 +63,15 @@ li{
 }
 
 h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Merriweather', serif;
   font-size: 20px;
-  margin-top:6rem;
+  margin-top:8rem;
   color: white;
 }
 p{
   margin-left:2rem;
   width: 90%;
-  margin-top:4rem;
+  margin-top:1rem;
 }
 
 .btn {

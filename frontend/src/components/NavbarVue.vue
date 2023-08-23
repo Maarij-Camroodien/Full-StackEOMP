@@ -8,7 +8,7 @@
                         <i class="bi bi-search" style="margin-top:0.5rem;color:white;"><span style="margin-left:1.3rem;color:white;"><input type="text" placeholder="SEARCH " style="background-color:black; color: white"></span></i>
                     </form>
                     </ul>
-                <img src="https://i.postimg.cc/KjZXvPqZ/Screenshot-2023-08-21-124610.png" style="width:13rem;" alt="logo">
+                <img src="https://i.postimg.cc/KjZXvPqZ/Screenshot-2023-08-21-124610.png" style="width:10rem;" alt="logo">
                 </div>
         </Navbar>
 

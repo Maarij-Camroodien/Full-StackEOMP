@@ -27,7 +27,16 @@ const routes = [
     name: 'admin',
     component: () => import( '../views/AdminView.vue')
   },
-  
+  {
+    path: '/single/:id?',
+    name: 'single',
+    component: () => import( '../views/SingleView.vue')
+  },
+  {
+    path: '/filter',
+    name: 'filter',
+    component: () => import( '../views/FilterCatView.vue')
+  },
 ]
 
 const router = createRouter({
