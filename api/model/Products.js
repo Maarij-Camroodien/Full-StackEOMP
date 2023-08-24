@@ -80,5 +80,56 @@ updateProduct(req,res){
              })
         })
  }
+ filterProductsCat(req,res){
+    const query = `
+    SELECT prodID, prodName, quantity, amount, Category, prodUrl
+    FROM Products
+    GROUP BY Category LIKE %${req.params.id}%;
+    `
+    const data = req.body
+    const id = req.params.id
+    db.query(query, [data,id],
+        (err, results)=>{
+            if (err) throw err
+            res.json({
+              status:  res.statusCode,
+              results
+             })
+        })
+ }
+ filterProductsNam(req,res){
+    const query = `
+    SELECT prodID, prodName, quantity, amount, Category, prodUrl
+    FROM Products
+    GROUP BY prodName LIKE %${req.params.id}%;
+    `
+    const data = req.body
+    const id = req.params.id
+    db.query(query, [data,id],
+        (err, results)=>{
+            if (err) throw err
+            res.json({
+              status:  res.statusCode,
+              results
+             })
+        })
+ }
+ searchProducts(req,res){
+    const query = `
+    SELECT prodID, prodName, quantity, amount, Category, prodUrl
+    FROM Products
+    WHERE ( Category LIKE '%${req.params.id}%' OR prodName LIKE '%${req.params.id}%' OR amount LIKE '%${req.params.id}%' );
+    `
+    const data = req.body
+    const id = req.params.id
+    db.query(query, [data,id],
+        (err, results)=>{
+            if (err) throw err
+            res.json({
+              status:  res.statusCode,
+              results
+             })
+        })
+ }
 }
 module.exports = Products

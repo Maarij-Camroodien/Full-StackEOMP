@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const routes = express.Router()
-const {users, products,} = require('../model')
+const {users, products} = require('../model')
 
 //User Router
 routes.get('/users', (req, res)=>{
@@ -11,7 +11,7 @@ routes.get('/user/:id', (req, res)=>{
     users.fetchUser(req,res)
 })
 routes.post('/user', bodyParser.json(),(req, res)=>{
-       users.register(req ,res)
+       users.registerUser(req ,res)
 })
 routes.put('/user/:id', bodyParser.json(),()=>{
     users.updateUser(req, res)
@@ -23,8 +23,7 @@ routes.delete('/user/:id',(req ,res)=>{
     users.deleteUser(req, res)
 })
 
-routes.post('/login',
-bodyParser.json(), (req, res)=>{
+routes.post('/login', bodyParser.json(), (req, res)=>{
     users.login(req, res)
 })
 
@@ -42,7 +41,7 @@ routes.post('/product', bodyParser.json(),(req, res)=>{
     products.registerProduct(req ,res)
 })
 routes.put('/product/:id', bodyParser.json(),(req, res)=>{
-    products.updateUser(req, res)
+    products.updateProduct(req, res)
 })
 routes.patch('/product/:id', bodyParser.json(),(req, res)=>{
     products.updateProduct(req, res)
@@ -50,6 +49,16 @@ routes.patch('/product/:id', bodyParser.json(),(req, res)=>{
 routes.delete('/product/:id',(req ,res)=>{
     products.deleteProduct(req, res)
 })
+routes.get('/filtername', bodyParser.json(),(req, res)=>{
+    products.filterProductsNam(req, res)
+})
+routes.get('/filtercategory', bodyParser.json(),(req, res)=>{
+    products.filterProductsCat(req, res)
+})
+routes.get('/search/:id', bodyParser.json(),(req, res)=>{
+    products.searchProducts(req, res)
+})
+
 
 module.exports = {
     express,

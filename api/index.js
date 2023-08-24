@@ -18,7 +18,7 @@ app.use(
    routes
 );
 
-routes.get('^/$|/challenger', (req, res) =>{
+routes.get('^/$|/fullstack', (req, res) =>{
     res.sendFile(path.resolve(__dirname, 
         './static/html/Admin.html'))
 })

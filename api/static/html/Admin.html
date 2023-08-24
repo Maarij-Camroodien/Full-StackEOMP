@@ -3,39 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/style.css">
     <title>Admin</title>
 </head>
 <body>
-    <h2>Admin</h2>
+    <h2 style="text-align: center;">Admin</h2>
+    <h4 style="text-align: center;">Home</h4>
     <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Surname</th>
-            <th scope="col">Age</th>
-            <th scope="col">Gender</th>
-            <th scope="col">User Role</th>
-            <th scope="col">Email Address</th>
-            <th scope="col">Password</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Rabia</td>
-            <td>Haucha</td>
-            <td>20</td>
-            <td>Female</td>
-            <td>Admin</td>
-            <td>rabiahaucha9@gmail.com</td>
-            <td>rabia</td>
-          </tr>
-        </tbody>
-      </table>
+      <thead>
+        <tr>
+          <th scope="col">HTTP METHOD</th>
+          <th scope="col">Path</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row col-6">GET</th>
+          <td class="col-6">/(Home Page)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 style="text-align: center;">Users</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">HTTP METHOD</th>
+          <th scope="col">Path</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row col-6">GET</th>
+          <td class="col-6">/users</td>
+        </tr>
+        <tr>
+          <th scope="row col-6">GET</th>
+          <td class="col-6">/user/:id</td>
+        </tr>
+        <tr>
+          <th scope="row col-6">POST</th>
+          <td class="col-6">/user</td>
+        </tr>
+        <tr>
+          <th scope="row col-6">PATCH/PUT</th>
+          <td class="col-6">/user/:id</td>
+        </tr>
+        <tr>
+          <th scope="row col-6">DELETE</th>
+          <td class="col-6">/user/:id</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 style="text-align: center;">Products</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">HTTP METHOD</th>
+          <th scope="col">Path</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row col-6">GET</th>
+          <td class="col-6">/products</td>
+        </tr>
+        <tr>
+          <th scope="row col-6">GET</th>
+          <td class="col-6">/product/:id</td>
+        </tr>
+        <tr>
+          <th scope="row col-6">POST</th>
+          <td class="col-6">/product</td>
+        </tr>
+        <tr>
+          <th scope="row col-6">PATCH/PUT</th>
+          <td class="col-6">/product/:id</td>
+        </tr>
+        <tr>
+          <th scope="row col-6">DELETE</th>
+          <td class="col-6">/product/:id</td>
+        </tr>
+      </tbody>
+    </table>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
 integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
