@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="row" style="margin-top: 3rem">
+    <div class="row" style="margin-top: 3rem display: flex; justify-content: center;">
       <div
-        class="car col-12 col-sm-6 col-md-4 p-2"
+        class="car col-12 col-sm-6 col-md-4 p-2" style="border: 2px solid black"
       >
         <img
           :src="$route.query.img"
@@ -24,7 +24,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["prodID"],
+  created() {
+    this.$store.dispatch('fetchProduct', this.prodID)
+  },
+  computed: {
+    product () {
+      return this.$store.state.product
+    }
+  }
+}
 </script>
 
 <style scoped></style>

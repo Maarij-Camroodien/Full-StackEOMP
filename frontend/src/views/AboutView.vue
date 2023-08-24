@@ -19,6 +19,23 @@
         </div>
       </div>
     </div>
+    <font size="7"><span style="color:#c11111;">Developers</span></font>
+    <div class="cardss">
+      <div class="card" style="width: 15rem;">
+        <img src="https://i.postimg.cc/pLHbR8HX/LCA-Rabia-Haucha-Ju23-5.jpg" class="card-img-top" id="imgss" alt="img">
+        <div class="card-body" style="border-radius:2px solid black;">
+          <h5 class="card-title">Rabia Haucha</h5>
+          <p class="card-text">Front-End Developer</p>
+        </div>
+      </div>
+      <div class="card" style="width: 15rem;margin-left:2rem;">
+        <img src="https://i.postimg.cc/hvY27DC5/e2c147ed-0f95-4798-96a5-93863264d3a4.jpg" class="card-img-top" id="imgss" alt="img">
+        <div class="card-body">
+          <h5 class="card-title">Maarij Camroodien</h5>
+          <p class="card-text">Back-End Developer</p>
+        </div>
+      </div>
+    </div>
   </div>
   
 
@@ -36,5 +53,19 @@ h5{
   font-family: 'Merriweather', serif;
 }
 
+h2 {
+  margin-top: 2rem;
+}
+
+.cardss {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  
+}
+
+#imgss {
+  width: 100%;
+}
 
 </style>

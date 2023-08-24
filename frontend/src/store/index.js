@@ -9,7 +9,8 @@ export default createStore({
     product: null,
     filtername: null,
     filtercategory: null,
-    addContent: null
+    addContent: null,
+    addUsers: null
   },
   getters: {
   },
@@ -34,7 +35,16 @@ export default createStore({
     },
     addContent(state, data) {
       state.addContent = data
-    }
+    },
+    addUsers(state, data) {
+      state.addUsers = data
+    },
+    setDeleteP(state, data){
+      state.products = data
+    },
+    setDeleteU(state, data){
+      state.users = data
+    },
 
   },
   actions: {
@@ -50,6 +60,15 @@ export default createStore({
       try{
         const {data} = await axios.get(`${spiceUrl}products`)
         context.commit("setProducts", data.results)
+        console.log(data.results);
+      }catch(e){
+        context.commit("setMsg", "An error occurred")
+      }
+    },
+    async fetchProduct(context, prodID) {
+      try{
+        const {data} = await axios.get(`${spiceUrl}product/${prodID}`)
+        context.commit("setProduct", data.results)
         console.log(data.results);
       }catch(e){
         context.commit("setMsg", "An error occurred")
@@ -71,7 +90,33 @@ export default createStore({
       } catch (error) {
         console.log(error);
       }
-    }
+    },
+    async addUser(context, userData){
+      try {
+        const response = await axios.post(`${spiceUrl}user`, userData)
+        context.commit('addUsers', response.data)
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async deleteUserFUNC(context, userID){
+      try {
+        const response = await axios.delete(`${spiceUrl}user/${userID}`)
+        context.commit('setDeleteU', response)
+        location.reload()
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async deleteProductFUNC(context, prodID){
+      try {
+        const response = await axios.delete(`${spiceUrl}product/${prodID}`)
+        context.commit('setDeleteP', response)
+        location.reload()
+      } catch (error) {
+        console.log(error);
+      }
+    },
 
   },  
   modules: {

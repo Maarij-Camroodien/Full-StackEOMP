@@ -24,7 +24,7 @@
                         <router-link to="/" class="nav-link"><span style="color:black;">HOME</span></router-link>
                     </li>
                     <li class="nav-item ">
-                        <router-link to="/about" class="nav-link"><span style="margin-left:1.3rem;color:black;">ABOUT</span></router-link>
+                        <router-link to="/about" class="nav-link"><span style="margin-left:0.3rem;color:black;">ABOUT</span></router-link>
                     </li>
                     <li class="nav-item ">
                         <router-link to="/products" class="nav-link"><span style="margin-left:1.3rem;color:black;">PRODUCTS</span></router-link>

@@ -87,9 +87,10 @@ h5{
 }
 
 .btn:hover {
-    color: #946e52;
+    color: #c11111;
     background-color: white;
-}
+    border: black solid 2px;
+  }
 
 .card-text {
     display: flex;

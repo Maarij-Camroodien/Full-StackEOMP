@@ -3,7 +3,7 @@
     <h1>Admin</h1>
 <div>
  <h2>Products</h2>
- 
+ <button class="btn"><AddProduct/></button>
     <div class="table-responsive" style="margin-top: 1rem">
         <table  class="table">
           <thead>
@@ -26,38 +26,15 @@
                 <td>{{ product.amount }}</td>
                 <td>{{ product.Category }}</td>
                 <td><img :src="product.prodUrl" :alt="product.prodName" style="width: 5rem; height:6rem" loading="lazy"></td>
-                <td><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit</button></td>
-                <td><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete</button></td>   
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <form @submit.prevent="addForm">
-                              <li><input type="text" v-model="prodData.prodID" name="" id=""></li>
-                              <li><input type="text" v-model="prodData.prodName" name="" id=""></li>
-                              <li><input type="text" v-model="prodData.quantity" name="" id=""></li>
-                              <li><input type="text" v-model="prodData.amount" name="" id=""></li>
-                              <li><input type="text" v-model="prodData.Category" name="" id=""></li>
-                              <button type="submit">Add</button>
-                             </form>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send message</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                <td></td>
+                <td><button class="btn btn-dark" @click="deleteProdcut(product.prodID)">Delete</button></td>    
                    </tr>
           </tbody>
         </table>
       </div>
 </div>
 <h2>Users</h2>
+<button class="btn"><AddUser/></button>
 <div class="table-responsive" style="margin-top: 1rem">
   <table  class="table">
     <thead>
@@ -84,34 +61,8 @@
           <td>{{ user.emailAdd }}</td>
           <td>{{ user.userPass }}</td>
           <td><img :src="user.userProfile" :alt="user.userName" style="width: 5rem; height:6rem" loading="lazy"></td>
-          <td><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit</button></td>
-          <td><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete</button></td>   
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <form>
-                        <div class="mb-3">
-                          <label for="recipient-name" class="col-form-label">Recipient:</label>
-                          <input type="text" class="form-control" id="recipient-name">
-                        </div>
-                        <div class="mb-3">
-                          <label for="message-text" class="col-form-label">Message:</label>
-                          <textarea class="form-control" id="message-text"></textarea>
-                        </div>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Send message</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <td></td>
+          <td><button class="btn btn-dark" @click="deleteUser(user.userID)">Delete</button></td>
              </tr>
     </tbody>
   </table>
@@ -119,19 +70,14 @@
 </template>
 
 <script>
-
+import AddProduct from '@/components/AddProduct.vue'
+import AddUser from '@/components/AddUser.vue'
 export default {
-  data(){
-    return{
-      prodData:{
-        prodID: "",
-        prodName: "",
-        quantity: "",
-        amount: "",
-        Category: ""
-      }
-    }
+  components: {
+    AddProduct,
+    AddUser
   },
+  
         computed: {
             products(){
                 return this.$store.state.products
@@ -144,9 +90,12 @@ export default {
             this.$store.dispatch('fetchProducts')
             this.$store.dispatch('fetchUsers')
         },
-        methods:{
-          async addForm(){
-            this.$store.dispatch('addProduct', this.prodData)
+        methods: {
+          deleteUser(userID) {
+            this.$store.dispatch('deleteUserFUNC', userID)
+          },
+          deleteProdcut(prodID) {
+            this.$store.dispatch('deleteProductFUNC', prodID)
           }
         }
         
@@ -161,5 +110,8 @@ h2 {
 h1 {
   margin-top: 2rem;
 }
+
+
+
 
 </style>

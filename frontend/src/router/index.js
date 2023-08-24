@@ -28,8 +28,9 @@ const routes = [
     component: () => import( '../views/AdminView.vue')
   },
   {
-    path: '/single/:id?',
+    path: '/single/:id',
     name: 'single',
+    props: true,
     component: () => import( '../views/SingleView.vue')
   },
   {
