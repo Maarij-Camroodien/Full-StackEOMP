@@ -87,7 +87,7 @@ fetchUsers(req, res){
         })
     }
  }
-    async registerUser(req ,res){
+    async register(req ,res){
     const data = req.body
     data.userPass = await hash(data.userPass,15)
     const user = {
@@ -114,7 +114,7 @@ fetchUsers(req, res){
         hashSync(data.userPass, 15)
     }
     const query = `
-    UPDATE USERS
+    UPDATE Users
     SET ?
     WHERE userID = ?
     `
