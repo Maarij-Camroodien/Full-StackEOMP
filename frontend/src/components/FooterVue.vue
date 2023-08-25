@@ -11,16 +11,16 @@
                 <li class="nav-item"><router-link to="/" class="nav-item">Home</router-link></li>
               </span>
                <span style="margin-left:1.3rem;color:black;">
-                <li class="nav-item"><router-link to="/" class="nav-item">About</router-link></li>
+                <li class="nav-item"><router-link to="about" class="nav-item">About</router-link></li>
               </span>
                <span style="margin-left:1.3rem;color:black;">
-                <li class="nav-item"><router-link to="/" class="nav-item">Products</router-link></li>
+                <li class="nav-item"><router-link to="/products" class="nav-item">Products</router-link></li>
               </span>
                <span style="margin-left:1.3rem;color:black;">
-                <li class="nav-item"><router-link to="/" class="nav-item">Contact</router-link></li>
+                <li class="nav-item"><router-link to="/contact" class="nav-item">Contact</router-link></li>
               </span>
                <span style="margin-left:1.3rem;color:black;">
-                <li class="nav-item"><router-link to="/" class="nav-item">Admin</router-link></li>
+                <li class="nav-item"><router-link to="/admin" class="nav-item">Admin</router-link></li>
               </span>
             </ul>
           </footer>

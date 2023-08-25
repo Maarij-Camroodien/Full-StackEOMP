@@ -2,7 +2,7 @@
   <div>
     <div class="row" style="margin-top: 3rem display: flex; justify-content: center;">
       <div
-        class="car col-12 col-sm-6 col-md-4 p-2" style="border: 2px solid black"
+        class="car col-12 col-sm-6 col-md-4 p-2" style="border: 2px solid"
       >
         <img
           :src="$route.query.img"

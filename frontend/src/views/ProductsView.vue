@@ -13,41 +13,48 @@
                     <button class="btn" style="width: 100%" id="pricesortbtn">Sort by Name</button>
                     </div>
                     <div class="namesortbtn">
-                      <button class="btn" style="width: 100%; margin-top: 1rem" id="namesortbtn">Sort by Category</button>
+                        <button class="btn" style="width: 100%; margin-top: 1rem" id="namesortbtn">Sort by Category</button>
                     </div>
-                  </div>
-              </div>
+                </div>
+            </div>
             <div class="row" style="margin-top: 3rem;font-family: 'Merriweather', serif;" v-if="products">
       <div class="car col-12 col-sm-6 col-md-4 p-2" v-for="product in products" :key="product.prodID">
                   <img :src="product.prodUrl" :alt="product.prodName" style="width:9rem;height:9rem;" loading="lazy">
                   <div class="card-body">
-                    <br>
-                  <h5 class="card-title">{{ product.prodName }}</h5>
-                   <h5 class="card-title">{{ product.Category }}</h5>
-                   <br>
-                  <p class="card-text">R {{ product.amount }}</p>
-                  <p class="card-text">Qty: {{ product.quantity }}</p>
-                  <router-link :to=
-                  "{name: 'single',
-                   params: {id: product.prodID},
-                   query: {
-                    prodName: product.prodName,
-                    Category: product.Category,
-                    img: product.prodUrl,
-                    amount: product.amount,
-                    quantity: product.quantity
-                  }
-                  }" class="btn">View More</router-link>
+                      <br>
+                      <h5 class="card-title">{{ product.prodName }}</h5>
+                      <h5 class="card-title">{{ product.Category }}</h5>
+                      <br>
+                      <p class="card-text">R {{ product.amount }}</p>
+                      <p class="card-text">Qty: {{ product.quantity }}</p>
+                      <router-link :to=
+                      "{name: 'single',
+                      params: {id: product.prodID},
+                      query: {
+                          prodName: product.prodName,
+                          Category: product.Category,
+                          img: product.prodUrl,
+                          amount: product.amount,
+                          quantity: product.quantity
+                        }
+                    }" class="btn">View More</router-link>
                 </div>
-                 </div>   
             </div>
         </div>
+        <div class="else" v-else>
+           <SpinnerVue/>
+        </div>   
+            </div>
         </div>   
     
 </template>
 
 <script>
+import SpinnerVue from '@/components/SpinnerVue.vue';
     export default {
+        components: {
+       SpinnerVue
+     },
         computed: {
             products(){
                 return this.$store.state.products

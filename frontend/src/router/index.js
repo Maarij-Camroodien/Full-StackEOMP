@@ -33,11 +33,6 @@ const routes = [
     props: true,
     component: () => import( '../views/SingleView.vue')
   },
-  {
-    path: '/filter',
-    name: 'filter',
-    component: () => import( '../views/FilterCatView.vue')
-  },
 ]
 
 const router = createRouter({

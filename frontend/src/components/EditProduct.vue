@@ -1,12 +1,12 @@
 <template>
     <div>
-        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo">Add</button>
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal1" data-bs-whatever="@mdo">Edit</button>
         <!-- <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Delete</button> -->
         <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel1">Add to The Spicery </h1>
+                  <h1 class="modal-title fs-5" id="exampleModalLabel1">New message</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -22,6 +22,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Send message</button>
                 </div>
               </div>
             </div>
@@ -44,21 +45,12 @@
   },
   methods:{
           async addForm(){
-            this.$store.dispatch('addProduct', this.prodData)
+            this.$store.dispatch('editProduct', this.prodData)
           }
         }
     }
 </script>
 
 <style scoped>
-.btn {
-    color: white ;
-    background-color: black;
-  }
-  .btn:hover {
-    color: #c11111;
-    background-color: white;
-    border: black solid 2px;
-  }
 
 </style>

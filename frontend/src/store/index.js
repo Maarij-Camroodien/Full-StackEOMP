@@ -10,7 +10,8 @@ export default createStore({
     filtername: null,
     filtercategory: null,
     addContent: null,
-    addUsers: null
+    addUsers: null,
+    setUpdateProd: null
   },
   getters: {
   },
@@ -45,6 +46,9 @@ export default createStore({
     setDeleteU(state, data){
       state.users = data
     },
+    setUpdateProd(state, data){
+      state.product = data
+    },
 
   },
   actions: {
@@ -53,7 +57,7 @@ export default createStore({
         const {data} = await axios.get(`${spiceUrl}users`)
         context.commit("setUsers", data.results)
       }catch(e){
-        context.commit("setMsg", "An error occurred")
+        console.log(e)
       }
     },
     async fetchProducts(context) {
@@ -62,7 +66,7 @@ export default createStore({
         context.commit("setProducts", data.results)
         console.log(data.results);
       }catch(e){
-        context.commit("setMsg", "An error occurred")
+        console.log(e)
       }
     },
     async fetchProduct(context, prodID) {
@@ -71,7 +75,7 @@ export default createStore({
         context.commit("setProduct", data.results)
         console.log(data.results);
       }catch(e){
-        context.commit("setMsg", "An error occurred")
+        console.log(e)
       }
     },
     async filtercategory(context) {
@@ -80,7 +84,7 @@ export default createStore({
         context.commit("filtercategory", data.results)
         console.log(data.results);
       }catch(e){
-        context.commit("setMsg", "An error occurred")
+        console.log(e)
       }
     },
     async addProduct(context, prodData){
@@ -112,6 +116,15 @@ export default createStore({
       try {
         const response = await axios.delete(`${spiceUrl}product/${prodID}`)
         context.commit('setDeleteP', response)
+        location.reload()
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async editProduct(context, prodData){
+      try {
+        const response = await axios.patch(`${spiceUrl}product/${prodData}`)
+        context.commit('setUpdateProd', response.data)
         location.reload()
       } catch (error) {
         console.log(error);
