@@ -49,15 +49,6 @@ routes.patch('/product/:id', bodyParser.json(),(req, res)=>{
 routes.delete('/product/:id',(req ,res)=>{
     products.deleteProduct(req, res)
 })
-routes.get('/filtername', bodyParser.json(),(req, res)=>{
-    products.filterProductsNam(req, res)
-})
-routes.get('/filtercategory', bodyParser.json(),(req, res)=>{
-    products.filterProductsCat(req, res)
-})
-routes.get('/search/:id', bodyParser.json(),(req, res)=>{
-    products.searchProducts(req, res)
-})
 
 
 module.exports = {
